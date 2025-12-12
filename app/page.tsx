@@ -5,10 +5,10 @@ export default function HomePage() {
     <div className="page-container">
       <div className="hero-section">
         <div className="hero-content">
-          <h1 className="heading-hero">
+          <h1 className="heading-hero md:text-7xl">
             Keep on top of your grades
           </h1>
-          <p className="text-hero">
+          <p className="text-hero md:text-3xl">
             Committed to all students in need
           </p>
           <div className="button-group">
@@ -21,7 +21,7 @@ export default function HomePage() {
           </div>
         </div>
       </div>
-      <div className="library-image-section">
+      <div className="library-image-section md:h-96">
         <div className="image-wrapper">
           <img src="/library_image.png" alt="Library" className="image-cover" />
         </div>

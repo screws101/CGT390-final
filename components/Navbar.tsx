@@ -8,7 +8,7 @@ export default function Navbar() {
 
   return (
     <nav className="navbar">
-      <div className="navbar-container">
+      <div className="navbar-container sm:px-6 lg:px-8">
         <div className="navbar-inner">
           <Link href="/courses" className="navbar-brand">
             ClassMate

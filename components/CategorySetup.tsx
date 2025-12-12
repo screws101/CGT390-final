@@ -44,7 +44,7 @@ export default function CategorySetup({ courseId, categories }: CategorySetupPro
   }
 
   return (
-    <div className="grid-cols-2">
+    <div className="grid-cols-2 md:grid-cols-2">
       <div className="card">
         <h2 className="heading-card spacing-bottom-medium">Add</h2>
         <div className="form-spacing">
@@ -93,7 +93,7 @@ export default function CategorySetup({ courseId, categories }: CategorySetupPro
           )}
         </div>
       </div>
-      <div className="nav-links">
+      <div className="nav-links md:col-span-2">
         <Link href="/courses" className="secondary-button">
           Back
         </Link>

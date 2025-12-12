@@ -50,12 +50,12 @@ export default async function CoursesPage() {
   )
 
   return (
-    <div className="page-wrapper">
+    <div className="page-wrapper sm:px-6 lg:px-8">
       <div className="flex-between">
         <h1 className="heading-page">Courses</h1>
         <ClearAllButton />
       </div>
-      <div className="grid-courses">
+      <div className="grid-courses md:grid-cols-2 lg:grid-cols-3">
         <GpaCard gpa={gpa} />
         <AddCourseCard />
         {coursesWithGrades.map((course) => (

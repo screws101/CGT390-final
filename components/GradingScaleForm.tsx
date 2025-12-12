@@ -61,7 +61,7 @@ export default function GradingScaleForm({ courseId, gradingScale }: GradingScal
   return (
     <div className="card-large">
       <form onSubmit={handleSubmit}>
-        <div className="grid-scale">
+        <div className="grid-scale md:grid-cols-3">
           {scale.map((item, index) => (
             <div key={index} className="form-spacing-small">
               <label className="form-label-inline">{item.grade}</label>
