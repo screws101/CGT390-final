@@ -43,7 +43,7 @@ export default function CourseCard({ course }: CourseCardProps) {
 
   return (
     <>
-      <div className="card relative">
+      <div className="card position-relative">
         <button
           onClick={() => setShowDeleteModal(true)}
           className="delete-button"
@@ -65,7 +65,7 @@ export default function CourseCard({ course }: CourseCardProps) {
             <div className="card-grade-small">{course.letterGrade}</div>
           )}
         </div>
-        <Link href={`/courses/${course.id}`} className="primary-button inline-block">
+        <Link href={`/courses/${course.id}`} className="primary-button display-inline-block">
           Go to Class
         </Link>
       </div>

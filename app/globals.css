@@ -252,7 +252,7 @@ body {
   @apply bg-red-600 text-white rounded-full px-4 py-2 font-medium hover:bg-red-700 transition-all;
 }
 
-.grid-cols-2 {
+.two-column-grid {
   @apply grid grid-cols-1 gap-8;
 }
 
@@ -328,51 +328,51 @@ body {
   @apply grid grid-cols-2 gap-6 mb-8;
 }
 
-.text-xl {
+.text-size-xl {
   @apply text-xl;
 }
 
-.text-2xl {
+.text-size-2xl {
   @apply text-2xl;
 }
 
-.text-3xl {
+.text-size-3xl {
   @apply text-3xl;
 }
 
-.text-4xl {
+.text-size-4xl {
   @apply text-4xl;
 }
 
-.text-6xl {
+.text-size-6xl {
   @apply text-6xl;
 }
 
-.text-lg {
+.text-size-lg {
   @apply text-lg;
 }
 
-.text-xs {
+.text-size-xs {
   @apply text-xs;
 }
 
-.text-sm {
+.text-size-sm {
   @apply text-sm;
 }
 
-.font-serif {
+.font-family-serif {
   @apply font-serif;
 }
 
-.font-medium {
+.font-weight-medium {
   @apply font-medium;
 }
 
-.font-bold {
+.font-weight-bold {
   @apply font-bold;
 }
 
-.font-semibold {
+.font-weight-semibold {
   @apply font-semibold;
 }
 
@@ -384,15 +384,15 @@ body {
   @apply flex gap-4;
 }
 
-.inline-block {
+.display-inline-block {
   @apply inline-block;
 }
 
-.relative {
+.position-relative {
   @apply relative;
 }
 
-.absolute {
+.position-absolute {
   @apply absolute;
 }
 
@@ -448,7 +448,7 @@ body {
   @apply px-2;
 }
 
-.text-center {
+.text-align-center {
   @apply text-center;
 }
 

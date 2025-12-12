@@ -62,9 +62,9 @@ export default function GradeTable({ course }: GradeTableProps) {
               <td className="table-cell">
                 {category.average !== null ? (
                   <div>
-                    <span className="font-medium">{category.average.toFixed(1)}%</span>
+                    <span className="font-weight-medium">{category.average.toFixed(1)}%</span>
                     {category.items.some(item => item.isDropped) && (
-                      <span className="text-xs text-muted spacing-left">(lowest dropped)</span>
+                      <span className="text-size-xs text-muted spacing-left">(lowest dropped)</span>
                     )}
                   </div>
                 ) : (
