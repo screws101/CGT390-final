@@ -9,10 +9,10 @@ import CategoryModal from './CategoryModal'
 interface Category {
   id: string
   label: string
-  weightPercent: number
+  weightPercent: number | null
   multiple: boolean
   expectedCount: number | null
-  dropLowest: number
+  dropLowest: number | null
   items: Array<{ id: string }>
 }
 
@@ -68,11 +68,11 @@ export default function CategorySetup({ courseId, categories }: CategorySetupPro
                 <div>
                   <h3 className="category-item-title">{category.label}</h3>
                   <p className="category-item-text">
-                    {category.weightPercent}% of grade
+                    {category.weightPercent !== null && category.weightPercent !== undefined ? `${category.weightPercent}% of grade` : 'Weight not set'}
                     {category.multiple && category.expectedCount && (
                       <span> • {category.items.length} / {category.expectedCount} grades</span>
                     )}
-                    {category.dropLowest > 0 && (
+                    {category.dropLowest !== null && category.dropLowest !== undefined && category.dropLowest > 0 && (
                       <span> • Drop lowest {category.dropLowest}</span>
                     )}
                   </p>

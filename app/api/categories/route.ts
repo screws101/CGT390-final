@@ -13,9 +13,9 @@ export async function POST(request: NextRequest) {
     const body = await request.json()
     const { courseId, label, weightPercent, multiple, expectedCount, dropLowest } = body
 
-    if (!courseId || !label || weightPercent === undefined) {
+    if (!courseId || !label) {
       return NextResponse.json(
-        { error: 'Course ID, label, and weight percent are required' },
+        { error: 'Course ID and label are required' },
         { status: 400 }
       )
     }
@@ -36,10 +36,10 @@ export async function POST(request: NextRequest) {
       data: {
         courseId,
         label,
-        weightPercent: parseFloat(weightPercent),
+        weightPercent: weightPercent !== null && weightPercent !== undefined ? parseFloat(weightPercent) : null,
         multiple: multiple || false,
         expectedCount: expectedCount ? parseInt(expectedCount) : null,
-        dropLowest: dropLowest ? parseInt(dropLowest) : 0,
+        dropLowest: dropLowest !== null && dropLowest !== undefined ? parseInt(dropLowest) : null,
       },
     })
 

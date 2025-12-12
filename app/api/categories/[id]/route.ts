@@ -33,10 +33,14 @@ export async function PUT(
       where: { id: params.id },
       data: {
         ...(label && { label }),
-        ...(weightPercent !== undefined && { weightPercent: parseFloat(weightPercent) }),
+        ...(weightPercent !== undefined && { 
+          weightPercent: weightPercent !== null ? parseFloat(weightPercent) : null 
+        }),
         ...(multiple !== undefined && { multiple }),
         ...(expectedCount !== undefined && { expectedCount: expectedCount ? parseInt(expectedCount) : null }),
-        ...(dropLowest !== undefined && { dropLowest: parseInt(dropLowest) }),
+        ...(dropLowest !== undefined && { 
+          dropLowest: dropLowest !== null ? parseInt(dropLowest) : null 
+        }),
       },
     })
 

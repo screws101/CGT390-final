@@ -10,7 +10,7 @@ export interface CategoryAverageResult {
  */
 export function calculateCategoryAverage(
   items: GradeItem[],
-  dropLowest: number
+  dropLowest: number | null
 ): CategoryAverageResult {
   // Filter out null/undefined grades
   const validItems = items.filter(item => item.percent !== null && item.percent !== undefined)
@@ -23,7 +23,8 @@ export function calculateCategoryAverage(
   const sorted = [...validItems].sort((a, b) => (a.percent || 0) - (b.percent || 0))
   
   // Determine how many to drop (not more than available)
-  const toDrop = Math.min(dropLowest, sorted.length - 1) // Keep at least one
+  const dropCount = dropLowest !== null && dropLowest !== undefined ? dropLowest : 0
+  const toDrop = Math.min(dropCount, sorted.length - 1) // Keep at least one
   
   // Mark dropped items
   const droppedItems = sorted.slice(0, toDrop).map(item => item.id)
@@ -51,6 +52,10 @@ export function calculateCourseGradePercentage(
   let weightedSum = 0
   
   for (const category of categories) {
+    if (category.weightPercent === null || category.weightPercent === undefined) {
+      continue
+    }
+    
     const { average } = calculateCategoryAverage(category.items, category.dropLowest)
     
     if (average !== null) {
@@ -82,16 +87,20 @@ export function calculateCourseGradePoints(
   
   for (const category of categories) {
     const categoryTotalPoints = category.weightPercent // In points mode, weightPercent is total points
+    
+    if (categoryTotalPoints === null || categoryTotalPoints === undefined || categoryTotalPoints <= 0) {
+      continue
+    }
+    
     const { average } = calculateCategoryAverage(category.items, category.dropLowest)
     
-    if (average !== null && categoryTotalPoints > 0) {
+    if (average !== null) {
       // Convert percentage to points earned
       const pointsEarned = (average / 100) * categoryTotalPoints
       earnedPoints += pointsEarned
-      totalPoints += categoryTotalPoints
-    } else if (categoryTotalPoints > 0) {
-      totalPoints += categoryTotalPoints
     }
+    
+    totalPoints += categoryTotalPoints
   }
   
   if (totalPoints === 0) {

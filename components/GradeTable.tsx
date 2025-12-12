@@ -9,7 +9,7 @@ interface GradeTableProps {
     categories: Array<{
       id: string
       label: string
-      weightPercent: number
+      weightPercent: number | null
       multiple: boolean
       expectedCount: number | null
       items: Array<{
@@ -48,15 +48,21 @@ export default function GradeTable({ course }: GradeTableProps) {
                 </Link>
               </td>
               <td className="table-cell-gray">
-                {course.weightingMode === 'points' ? (
-                  `${category.weightPercent} pts`
+                {category.weightPercent !== null && category.weightPercent !== undefined ? (
+                  <>
+                    {course.weightingMode === 'points' ? (
+                      `${category.weightPercent} pts`
+                    ) : (
+                      `${category.weightPercent}% of grade`
+                    )}
+                    {category.multiple && category.expectedCount && (
+                      <span className="text-secondary spacing-left">
+                        ({category.items.length} / {category.expectedCount} grades)
+                      </span>
+                    )}
+                  </>
                 ) : (
-                  `${category.weightPercent}% of grade`
-                )}
-                {category.multiple && category.expectedCount && (
-                  <span className="text-secondary spacing-left">
-                    ({category.items.length} / {category.expectedCount} grades)
-                  </span>
+                  <span className="text-muted">Weight not set</span>
                 )}
               </td>
               <td className="table-cell">

@@ -64,10 +64,10 @@ model GradeCategory {
   id            String     @id @default(uuid())
   courseId      String
   label         String
-  weightPercent Float
+  weightPercent Float?
   multiple      Boolean
   expectedCount Int?
-  dropLowest    Int        @default(0)
+  dropLowest    Int?
   items         GradeItem[]
   course        Course     @relation(fields: [courseId], references: [id], onDelete: Cascade)
 }

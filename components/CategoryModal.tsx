@@ -6,10 +6,10 @@ import toast from 'react-hot-toast'
 interface Category {
   id: string
   label: string
-  weightPercent: number
+  weightPercent: number | null
   multiple: boolean
   expectedCount: number | null
-  dropLowest: number
+  dropLowest: number | null
 }
 
 interface CategoryModalProps {
@@ -27,12 +27,18 @@ export default function CategoryModal({
   onClose,
   onSave,
 }: CategoryModalProps) {
-  const [formData, setFormData] = useState({
+  const [formData, setFormData] = useState<{
+    label: string
+    weightPercent: string
+    multiple: boolean
+    expectedCount: number | null
+    dropLowest: string
+  }>({
     label: category?.label || label || '',
-    weightPercent: category?.weightPercent || 0,
+    weightPercent: category?.weightPercent !== null && category?.weightPercent !== undefined ? String(category.weightPercent) : '',
     multiple: category?.multiple || false,
     expectedCount: category?.expectedCount || null,
-    dropLowest: category?.dropLowest || 0,
+    dropLowest: category?.dropLowest !== null && category?.dropLowest !== undefined ? String(category.dropLowest) : '',
   })
   const [isLoading, setIsLoading] = useState(false)
 
@@ -46,15 +52,21 @@ export default function CategoryModal({
         : '/api/categories'
       const method = category ? 'PUT' : 'POST'
 
+      const finalWeight = formData.weightPercent === '' ? null : Number(formData.weightPercent)
+      const finalDropLowest = formData.dropLowest === '' ? null : Number(formData.dropLowest)
+
       const response = await fetch(url, {
         method,
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({
           ...(category ? {} : { courseId }),
-          ...formData,
+          label: formData.label,
+          weightPercent: finalWeight,
+          multiple: formData.multiple,
           expectedCount: formData.multiple && formData.expectedCount
             ? parseInt(formData.expectedCount.toString())
             : null,
+          dropLowest: finalDropLowest,
         }),
       })
 
@@ -93,13 +105,14 @@ export default function CategoryModal({
               Weight ({category ? 'Percent' : 'Percent of course'})
             </label>
             <input
-              type="number"
-              min="0"
-              max="100"
-              step="0.1"
+              type="text"
+              inputMode="decimal"
               value={formData.weightPercent}
-              onChange={(e) => setFormData({ ...formData, weightPercent: parseFloat(e.target.value) || 0 })}
-              required
+              placeholder="Optional"
+              onChange={(e) => {
+                const val = e.target.value
+                setFormData({ ...formData, weightPercent: val })
+              }}
               className="form-field"
             />
           </div>
@@ -136,13 +149,14 @@ export default function CategoryModal({
                   Drop lowest grades
                 </label>
                 <input
-                  type="number"
-                  min="0"
+                  type="text"
+                  inputMode="numeric"
                   value={formData.dropLowest}
-                  onChange={(e) => setFormData({
-                    ...formData,
-                    dropLowest: parseInt(e.target.value) || 0,
-                  })}
+                  placeholder="Optional"
+                  onChange={(e) => {
+                    const val = e.target.value
+                    setFormData({ ...formData, dropLowest: val })
+                  }}
                   className="form-field"
                 />
               </div>
