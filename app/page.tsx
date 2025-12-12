@@ -1,4 +1,5 @@
 import Link from 'next/link'
+import Image from 'next/image'
 
 export default function HomePage() {
   return (
@@ -22,8 +23,8 @@ export default function HomePage() {
         </div>
       </div>
       <div className="library-image-section md:h-96">
-        <div className="image-wrapper">
-          <img src="/library_image.png" alt="Library" className="image-cover" />
+        <div className="image-wrapper position-relative">
+          <Image src="/library_image.png" alt="Library" fill className="object-cover rounded-3xl" />
         </div>
       </div>
     </div>

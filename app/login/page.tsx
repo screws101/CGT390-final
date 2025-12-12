@@ -107,7 +107,7 @@ export default function LoginPage() {
             </button>
           </div>
           <p className="spacing-top text-centered-secondary">
-            Don't have an account?{' '}
+            Don&apos;t have an account?{' '}
             <Link href="/signup" className="button-link">
               Sign up
             </Link>
