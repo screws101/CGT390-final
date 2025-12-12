@@ -18,7 +18,7 @@ export default async function ProtectedLayout({
   return (
     <SessionProvider session={session}>
       <Navbar />
-      <main className="page-container bg-light">{children}</main>
+      <main className="page-container background-light">{children}</main>
     </SessionProvider>
   )
 }

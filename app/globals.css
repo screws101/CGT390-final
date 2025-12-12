@@ -452,11 +452,11 @@ body {
   @apply text-center;
 }
 
-.bg-light {
+.background-light {
   @apply bg-gray-50;
 }
 
-.text-gray-700 {
+.paragraph-text {
   @apply text-gray-700;
 }
 
@@ -529,7 +529,7 @@ body {
 }
 
 .modal-message {
-  @apply text-gray-700 spacing-bottom-medium;
+  @apply paragraph-text spacing-bottom-medium;
 }
 
 .gpa-title {
@@ -549,5 +549,5 @@ body {
 }
 
 .table-cell-gray {
-  @apply table-cell text-gray-700;
+  @apply table-cell paragraph-text;
 }
