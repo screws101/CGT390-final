@@ -1,0 +1,553 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --font-inter: 'Inter', sans-serif;
+  --font-playfair: 'Playfair Display', serif;
+}
+
+body {
+  background-color: #f9fafb;
+  color: #1f2937;
+}
+
+.page-container {
+  @apply min-h-screen flex flex-col;
+}
+
+.page-wrapper {
+  @apply max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12;
+}
+
+.hero-section {
+  @apply flex-1 flex flex-col items-center justify-center px-4 py-16;
+}
+
+.hero-content {
+  @apply max-w-4xl w-full text-center space-y-8;
+}
+
+.library-image-section {
+  @apply w-full h-64 md:h-96 bg-gradient-to-b from-gray-50 to-brown-100;
+}
+
+.library-image-full {
+  @apply h-1/2 bg-cover bg-center;
+}
+
+.auth-split-top {
+  @apply h-1/2 bg-gray-50 flex justify-center items-center px-4;
+}
+
+.auth-split-bottom {
+  @apply h-1/2 bg-cover bg-center;
+}
+
+.auth-card {
+  @apply bg-white rounded-3xl shadow-xl p-10 max-w-md w-full text-center border border-gray-200;
+}
+
+.card {
+  @apply bg-white rounded-card p-8 border border-brown-300/30;
+}
+
+.card-large {
+  @apply bg-white rounded-card p-10;
+}
+
+.heading-hero {
+  @apply text-6xl md:text-7xl font-serif font-bold text-gray-800;
+}
+
+.heading-page {
+  @apply text-5xl font-serif font-bold text-gray-800;
+}
+
+.heading-section {
+  @apply text-4xl font-bold mb-6 text-gray-800;
+}
+
+.heading-card {
+  @apply text-2xl font-serif font-bold text-gray-800;
+}
+
+.text-hero {
+  @apply text-2xl md:text-3xl text-gray-700;
+}
+
+.text-body {
+  @apply text-gray-800;
+}
+
+.text-secondary {
+  @apply text-gray-600;
+}
+
+.text-muted {
+  @apply text-gray-400;
+}
+
+.form-container {
+  @apply space-y-6;
+}
+
+.form-field {
+  @apply w-full border border-brown-300 rounded-full px-4 py-2 focus:outline-none focus:ring-2 focus:ring-brown-300;
+}
+
+.form-label {
+  @apply block text-gray-800 mb-2 text-left;
+}
+
+.form-label-inline {
+  @apply block text-gray-800 mb-2 font-medium;
+}
+
+.primary-button {
+  @apply bg-brown-700 text-white rounded-full px-4 py-2 font-medium hover:bg-brown-800 transition-all;
+}
+
+.primary-button-full {
+  @apply bg-brown-700 text-white w-full rounded-full py-3 font-semibold hover:bg-brown-800 transition-all disabled:opacity-50;
+}
+
+.secondary-button {
+  @apply bg-white border border-brown-300 text-gray-800 rounded-full px-4 py-2 font-medium hover:bg-gray-50 transition-all;
+}
+
+.secondary-button-full {
+  @apply w-full bg-white border border-brown-300 text-gray-800 rounded-full px-4 py-2 font-medium hover:bg-gray-50 transition-all disabled:opacity-50;
+}
+
+.button-link {
+  @apply text-gray-800 hover:underline font-medium;
+}
+
+.button-link-primary {
+  @apply text-brown-700 hover:underline;
+}
+
+.navbar {
+  @apply bg-white/50 backdrop-blur-sm border-b border-brown-300/20 sticky top-0 z-50;
+}
+
+.navbar-container {
+  @apply max-w-7xl mx-auto px-4 sm:px-6 lg:px-8;
+}
+
+.navbar-inner {
+  @apply flex justify-between items-center h-16;
+}
+
+.navbar-brand {
+  @apply text-2xl font-serif font-bold text-gray-800;
+}
+
+.navbar-user {
+  @apply flex items-center gap-4;
+}
+
+.grid-courses {
+  @apply grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6;
+}
+
+.flex-between {
+  @apply flex justify-between items-center mb-8;
+}
+
+.button-group {
+  @apply flex gap-4 justify-center mt-12;
+}
+
+.button-group-end {
+  @apply flex gap-4 justify-end pt-4;
+}
+
+.button-group-end-mt {
+  @apply flex gap-4 justify-end mt-8;
+}
+
+.divider {
+  @apply relative;
+}
+
+.divider-line {
+  @apply absolute inset-0 flex items-center;
+}
+
+.divider-border {
+  @apply w-full border-t border-brown-300;
+}
+
+.divider-text {
+  @apply relative flex justify-center text-sm;
+}
+
+.divider-text-inner {
+  @apply px-2 bg-white text-gray-600;
+}
+
+.modal-overlay {
+  @apply fixed inset-0 bg-black/50 flex items-center justify-center z-50;
+}
+
+.modal-content {
+  @apply bg-white rounded-card p-8 max-w-md w-full mx-4;
+}
+
+.modal-content-scroll {
+  @apply bg-white rounded-card p-8 max-w-md w-full mx-4 max-h-[90vh] overflow-y-auto;
+}
+
+.table-container {
+  @apply overflow-x-auto;
+}
+
+.table {
+  @apply w-full;
+}
+
+.table-header {
+  @apply border-b border-brown-300;
+}
+
+.table-header-cell {
+  @apply text-left py-3 px-4 font-medium text-gray-800;
+}
+
+.table-row {
+  @apply border-b border-brown-300/30;
+}
+
+.table-cell {
+  @apply py-3 px-4;
+}
+
+.text-center-muted {
+  @apply text-center text-gray-600;
+}
+
+.delete-button {
+  @apply absolute top-4 right-4 text-gray-600 hover:text-gray-800 transition-all;
+}
+
+.icon-button {
+  @apply w-5 h-5;
+}
+
+.image-cover {
+  @apply w-full h-full object-cover rounded-3xl;
+}
+
+.image-wrapper {
+  @apply w-full h-full flex items-center justify-center text-muted;
+}
+
+.add-course-card {
+  @apply card border-2 border-dashed border-brown-300 hover:border-brown-700 transition-colors flex flex-col items-center justify-center min-h-[200px];
+}
+
+.danger-button {
+  @apply bg-red-600 text-white rounded-full px-4 py-2 font-medium hover:bg-red-700 transition-all;
+}
+
+.grid-cols-2 {
+  @apply grid grid-cols-1 md:grid-cols-2 gap-8;
+}
+
+.category-item {
+  @apply border border-brown-300 rounded-lg p-4;
+}
+
+.category-item-inner {
+  @apply flex justify-between items-start;
+}
+
+.category-item-title {
+  @apply font-medium text-body;
+}
+
+.category-item-text {
+  @apply text-sm text-secondary mt-1;
+}
+
+.edit-link {
+  @apply text-brown-700 hover:text-brown-800 font-medium transition-all;
+}
+
+.nav-links {
+  @apply md:col-span-2 flex justify-between mt-8;
+}
+
+.content-wrapper {
+  @apply max-w-6xl mx-auto px-4 py-12;
+}
+
+.content-wrapper-medium {
+  @apply max-w-4xl mx-auto px-4 py-12;
+}
+
+.content-wrapper-small {
+  @apply max-w-2xl mx-auto px-4 py-12;
+}
+
+.section-header {
+  @apply mb-8;
+}
+
+.section-header-link {
+  @apply mb-4 inline-block;
+}
+
+.section-title {
+  @apply mt-4;
+}
+
+.section-subtitle {
+  @apply mt-2;
+}
+
+.section-spacing {
+  @apply mb-6;
+}
+
+.form-spacing {
+  @apply space-y-4;
+}
+
+.form-spacing-small {
+  @apply space-y-2;
+}
+
+.form-spacing-large {
+  @apply space-y-6;
+}
+
+.grid-scale {
+  @apply grid grid-cols-2 md:grid-cols-3 gap-6 mb-8;
+}
+
+.text-xl {
+  @apply text-xl;
+}
+
+.text-2xl {
+  @apply text-2xl;
+}
+
+.text-3xl {
+  @apply text-3xl;
+}
+
+.text-4xl {
+  @apply text-4xl;
+}
+
+.text-6xl {
+  @apply text-6xl;
+}
+
+.text-lg {
+  @apply text-lg;
+}
+
+.text-xs {
+  @apply text-xs;
+}
+
+.text-sm {
+  @apply text-sm;
+}
+
+.font-serif {
+  @apply font-serif;
+}
+
+.font-medium {
+  @apply font-medium;
+}
+
+.font-bold {
+  @apply font-bold;
+}
+
+.font-semibold {
+  @apply font-semibold;
+}
+
+.flex-center {
+  @apply flex items-center;
+}
+
+.flex-gap {
+  @apply flex gap-4;
+}
+
+.inline-block {
+  @apply inline-block;
+}
+
+.relative {
+  @apply relative;
+}
+
+.absolute {
+  @apply absolute;
+}
+
+.full-size {
+  @apply w-full h-full;
+}
+
+.full-width {
+  @apply w-full;
+}
+
+.spacing-top {
+  @apply mt-6;
+}
+
+.spacing-top-small {
+  @apply mt-4;
+}
+
+.spacing-top-xs {
+  @apply mt-2;
+}
+
+.spacing-bottom {
+  @apply mb-8;
+}
+
+.spacing-bottom-medium {
+  @apply mb-6;
+}
+
+.spacing-bottom-small {
+  @apply mb-4;
+}
+
+.spacing-bottom-xs {
+  @apply mb-2;
+}
+
+.spacing-left {
+  @apply ml-2;
+}
+
+.spacing-y {
+  @apply py-8;
+}
+
+.spacing-y-small {
+  @apply py-4;
+}
+
+.spacing-x-small {
+  @apply px-2;
+}
+
+.text-center {
+  @apply text-center;
+}
+
+.bg-light {
+  @apply bg-gray-50;
+}
+
+.text-gray-700 {
+  @apply text-gray-700;
+}
+
+.disabled-state {
+  @apply disabled:opacity-50;
+}
+
+.checkbox-row {
+  @apply flex items-center;
+}
+
+.checkbox-spacing {
+  @apply mr-2;
+}
+
+.grade-display-large {
+  @apply text-6xl font-bold text-body mb-2;
+}
+
+.grade-display-medium {
+  @apply text-2xl text-secondary;
+}
+
+.grade-section-title {
+  @apply text-3xl font-serif font-bold text-body mb-6;
+}
+
+.course-info {
+  @apply text-xl text-secondary;
+}
+
+.back-link {
+  @apply mb-4 inline-block;
+}
+
+.card-title {
+  @apply heading-card spacing-bottom-xs;
+}
+
+.card-subtitle {
+  @apply text-secondary spacing-bottom-small;
+}
+
+.card-content {
+  @apply spacing-bottom-medium;
+}
+
+.card-grade-large {
+  @apply text-3xl font-bold text-body;
+}
+
+.card-grade-small {
+  @apply text-lg text-secondary;
+}
+
+.card-icon {
+  @apply text-6xl spacing-bottom-small;
+}
+
+.card-title-small {
+  @apply text-xl font-serif font-bold text-body;
+}
+
+.card-subtitle-small {
+  @apply text-secondary spacing-top-xs;
+}
+
+.modal-title {
+  @apply heading-card spacing-bottom-small;
+}
+
+.modal-message {
+  @apply text-gray-700 spacing-bottom-medium;
+}
+
+.gpa-title {
+  @apply heading-card spacing-bottom-small;
+}
+
+.gpa-value {
+  @apply text-4xl font-bold text-body;
+}
+
+.text-centered-secondary {
+  @apply text-center text-secondary;
+}
+
+.text-center-spacing {
+  @apply text-center;
+}
+
+.table-cell-gray {
+  @apply table-cell text-gray-700;
+}
